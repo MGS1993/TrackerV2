@@ -1,0 +1,15 @@
+.CEWrapper {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.CEForm {
+  height: 50%;
+  width: 30%;
+  background-color: aliceblue;
+}
