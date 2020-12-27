@@ -1,0 +1,28 @@
+.navWrapper {
+  height: 48px;
+  max-width: 77%;
+  min-width: 40%;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.navWrapper > div {
+  min-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+.navWrapper > div:hover {
+  background-color: rgb(42, 161, 42);
+}
+a {
+  text-decoration: none;
+  color: white;
+}
