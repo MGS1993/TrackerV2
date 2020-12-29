@@ -13,6 +13,7 @@ router.post('/add-expense', expenseController.add_expense);
 
 
 
+
 //USER ROUTES
 //POST user
 router.post('/create-user', userController.add_user);
@@ -20,6 +21,7 @@ router.post('/create-user', userController.add_user);
 router.get('/display-users', userController.display_users);
 //get test
 router.get('/test', expenseController.test_pop);
+
 
 
 module.exports = router;

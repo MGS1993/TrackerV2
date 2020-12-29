@@ -33,4 +33,3 @@ exports.test_pop = function(req, res, next) {
     .then(stories => res.json(stories))
     .catch(err => res.status(400).json('Error: ' + err))
 }
-

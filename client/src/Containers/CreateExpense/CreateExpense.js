@@ -33,7 +33,7 @@ class CreateExpense extends Component {
     try {
       const response = await fetch('/api/test');
       const data = await response.json();
-      console.log(data)
+      console.log('these are the expenses created by manuel', data)
     } catch(error) {
       console.log(error)
     }
