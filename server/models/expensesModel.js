@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 const ExpensesSchema = new Schema (
   {
-    itemName: {type:String, required: true},
-    itemPrice: {type: String, required: true}
+    expenseName: {type:String, required: true},
+    expensePrice: {type: String, required: true},
+    user: {type: Schema.Types.ObjectId, required:true, ref: 'Users'}
   }
 );
 

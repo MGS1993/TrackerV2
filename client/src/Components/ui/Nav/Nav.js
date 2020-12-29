@@ -7,6 +7,7 @@ const Nav = props => (
     <div><Link to="/charts"><p>Charts</p></Link></div>
     <div><Link to="/create-expense"><p>Log Expense</p></Link></div>
     <div><Link to="/view-history"><p>View History</p></Link></div>
+    <div><Link to="/create-user"><p>Add New User</p></Link></div>
   </nav>
 )
 
