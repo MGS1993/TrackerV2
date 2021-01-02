@@ -18,7 +18,8 @@ exports.add_expense = function(req, res, next) {
     {
       expenseName: req.body.expenseName,
       expensePrice: req.body.expensePrice,
-      user: req.body.user
+      user: req.body.user,
+      category: req.body.category
     }
   );
   
@@ -34,7 +35,7 @@ exports.expense_delete = function(req, res, next) {
 }
 exports.test_pop = function(req, res, next) {
   expenses
-    .find({user: "5fea4e9061eb4f0008dc7afa"})
+    .find({category: 'Groceries'})
     .then(stories => res.json(stories))
     .catch(err => res.status(400).json('Error: ' + err))
 }

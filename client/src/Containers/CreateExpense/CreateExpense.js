@@ -6,7 +6,9 @@ class CreateExpense extends Component {
     expenseName: "",
     expensePrice: "",
     currentUserId: "",
-    usersList: ""
+    usersList: "",
+    category: "Electronics"
+    
   }
 
 
@@ -44,7 +46,8 @@ class CreateExpense extends Component {
     let dataBody = {
       expenseName: this.state.expenseName,
       expensePrice: this.state.expensePrice,
-      user: this.state.currentUserId
+      user: this.state.currentUserId,
+      category: this.state.category
     }
     fetch('api/add-expense', {
       method: 'POST',
@@ -63,7 +66,9 @@ class CreateExpense extends Component {
   handleExpensePriceChange = e => {
     this.setState({expensePrice: e.target.value})
   }
-
+  handleDropDownChange = e => {
+    this.setState({category: e.target.value})
+  }
   render() {
 
 
@@ -95,6 +100,21 @@ class CreateExpense extends Component {
                 <input type="text" name="expensePrice"
                 value={this.state.expensePrice}
                 onChange={this.handleExpensePriceChange} />
+              </label>
+            </div>
+            <div className={styles.labelWrapper}>
+              <label>
+                <div>
+                  category
+                </div>
+
+                <select defaultValue={this.state.category} onChange={this.handleDropDownChange}>
+                  <option value="Electronics">Electronics</option>
+                  <option value="Groceries">Groceries</option>
+                  <option value="Utilities">Utilities</option>
+                  <option value="Rent">Rent</option>
+                  <option value="Travel">Travel</option>
+                </select>
               </label>
             </div>
             <input
