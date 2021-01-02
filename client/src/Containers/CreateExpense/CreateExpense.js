@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './CreateExpense.module.css';
-
+import Nav from '../../Components/ui/Nav/Nav';
 class CreateExpense extends Component {
   state= {
     expenseName: "",
@@ -53,6 +53,8 @@ class CreateExpense extends Component {
         'Content-Type': 'application/json'
       },
     })
+ 
+    this.setState({expenseName: '', expensePrice: ''})
   }
 
   handleExpenseNameChange = e => {
@@ -67,25 +69,38 @@ class CreateExpense extends Component {
 
     return(
       <div className={styles.CEWrapper}>
-        <div className={styles.CEForm}>
-          <form onSubmit={this.handleSubmit}>
+        <Nav />
+        <h2>Add an expense</h2>
+        <div className={styles.CEFormWrapper}>
+          <form className={styles.form} onSubmit={this.handleSubmit}>
+            <div className={styles.labelWrapper}>
+              <label>
+                <div>
+                Expense Name
+                </div>
 
-            <label>
-              Expense Name
-              <input 
-              type="text" name="expenseName" 
-              value={this.state.expenseName}
-              onChange={this.handleExpenseNameChange} />
-            </label>
+                <input 
+                type="text" name="expenseName" 
+                value={this.state.expenseName}
+                onChange={this.handleExpenseNameChange} />
+              </label>
+            </div>
 
-            <label>
-              Expense Price
-              <input type="text" name="expensePrice"
-              value={this.state.expensePrice}
-              onChange={this.handleExpensePriceChange} />
-            </label>
+            <div className={styles.labelWrapper}>
+              <label>
+                <div> 
+                  Expense Price
+                </div>
 
-            <input type="submit" value="Submit Expense" />
+                <input type="text" name="expensePrice"
+                value={this.state.expensePrice}
+                onChange={this.handleExpensePriceChange} />
+              </label>
+            </div>
+            <input
+             type="submit" 
+             value="Submit Expense"
+             className={styles.submitBtn} />
           </form>
         </div>
       </div>
