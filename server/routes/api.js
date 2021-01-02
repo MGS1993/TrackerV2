@@ -10,7 +10,8 @@ const userController = require('../controllers/userController');
 router.get('/expenses', expenseController.all_expenses);
 ///POST expense
 router.post('/add-expense', expenseController.add_expense);
-
+//POST Delete Expense
+router.post('/expenses/:id/delete', expenseController.expense_delete)
 
 
 

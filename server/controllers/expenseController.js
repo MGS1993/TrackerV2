@@ -26,7 +26,12 @@ exports.add_expense = function(req, res, next) {
     if(err) {return next(err)}
   })          
 }
-
+//DELETE Expense
+exports.expense_delete = function(req, res, next) {
+  expenses.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Expense deleted'))
+    .catch(err => res.status(400).json('Error: ' + err))
+}
 exports.test_pop = function(req, res, next) {
   expenses
     .find({user: "5fea4e9061eb4f0008dc7afa"})

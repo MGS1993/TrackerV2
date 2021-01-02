@@ -13,26 +13,22 @@ class HomePage extends Component {
       const response = await fetch('/api/expenses')
       const data = await response.json()
       this.setState({totalExpenses: data})
+      this.homePageExpenses()
     }catch(error) {
       console.log(error)
     }
-
-    try {
-      this.addExpenses()
-    } catch(error) {
-      console.log(error)
-    }
   }
 
-  addExpenses = () => {
+  homePageExpenses = () => {
+    let totalExpensesArr = []
     this.state.totalExpenses.forEach(el => {
-      console.log(el.expensePrice)
+      totalExpensesArr.push(el.expensePrice)
     })
+     
+    this.setState({homePageExpenses: totalExpensesArr.reduce((acc, cur) => {
+      return acc + cur
+    }) })
   }
-
-
-  
-
 
   render() {
     
@@ -40,7 +36,8 @@ class HomePage extends Component {
       <div className={styles.homePageWrapper}>
         <Nav />
         <h1>This is the Home Page!</h1>
-        <TotalExpenditures />
+        <TotalExpenditures 
+        totalSpent={this.state.homePageExpenses}/>
         
       </div>
     )
