@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styles from "./CreateUser.module.css";
-
 class CreateUser extends Component {
 
   state = {
@@ -30,6 +29,7 @@ class CreateUser extends Component {
   render() {
     return (
       <div className={styles.CUWrapper}>
+        
         <div className={styles.CUForm}>
           <form onSubmit={this.handleSubmit}>
             <label>

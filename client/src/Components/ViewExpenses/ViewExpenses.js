@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styles from './ViewExpenses.module.css';
 import Nav from '../ui/Nav/Nav';
+import ExpenseTable from '../../Components/ui/Table/ExpenseTable';
 class ViewExpenses extends Component {
 
   state = {
@@ -8,17 +9,13 @@ class ViewExpenses extends Component {
     delBtnToggled: false
   }
 
-  componentDidMount() {
-    this.fetchData();
-  }
-
+  
   fetchData = async() => {
-    console.log('fetchData ran...')
     try {
       const response = await fetch('/api/expenses')
       const data = await response.json()
       this.setState({expenses: data})
-      console.log(data)
+      // console.log(data)
     }catch(err) {
       console.log(err)
     }
@@ -70,7 +67,8 @@ class ViewExpenses extends Component {
           {btn}
           
         </div>
-        <ul>
+        <ExpenseTable />
+        {/* <ul>
           {this.state.expenses.map(item => 
             <li 
             onClick={this.deleteItemHandler}
@@ -80,7 +78,7 @@ class ViewExpenses extends Component {
             {item.expenseName} 
             {' ' +  'price:'}  {item.expensePrice}  
             </li>)}
-        </ul>
+        </ul> */}
       </div>
     )
   }
