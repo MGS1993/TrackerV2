@@ -32,13 +32,13 @@ class CreateExpense extends Component {
       console.log(error)
     }
 
-    try {
-      const response = await fetch('/api/test');
-      const data = await response.json();
-      console.log('these are the expenses created by manuel', data)
-    } catch(error) {
-      console.log(error)
-    }
+    // try {
+    //   const response = await fetch('/api/test');
+    //   const data = await response.json();
+    //   console.log('these are the expenses created by manuel', data)
+    // } catch(error) {
+    //   console.log(error)
+    // }
   }
 
   handleSubmit = e => {

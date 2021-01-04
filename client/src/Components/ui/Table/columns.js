@@ -14,5 +14,9 @@ export const COLUMNS = [
   {
     Header: 'Category',
     accessor: 'category'
-  }
+  },
+  // {
+  //   Header: 'ID',
+  //   accessor: '_id'
+  // }
 ]

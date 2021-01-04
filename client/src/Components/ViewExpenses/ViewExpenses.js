@@ -22,7 +22,7 @@ class ViewExpenses extends Component {
   }
 
   deleteItemHandler = (e) => {
-    let selected = e.target.id
+    let selected = e.target.parentElement.id
     if(this.state.delBtnToggled === true) {
       fetch(`api/expenses/${selected}/delete`, {
         method: 'POST',
@@ -40,7 +40,13 @@ class ViewExpenses extends Component {
       ({delBtnToggled: !prevState.delBtnToggled}))
     console.log(e.target)
   }
+  test = e => {
+    console.log(e.target.parentElement.id)
+    
+  }
   render() {
+    let updatedData = this.state.expenses
+
     let btn = null
     if (this.state.delBtnToggled) {
       btn = (
@@ -67,18 +73,10 @@ class ViewExpenses extends Component {
           {btn}
           
         </div>
-        <ExpenseTable />
-        {/* <ul>
-          {this.state.expenses.map(item => 
-            <li 
-            onClick={this.deleteItemHandler}
-            key={item._id}
-            id={item._id}
-            className={styles.liLinks}>
-            {item.expenseName} 
-            {' ' +  'price:'}  {item.expensePrice}  
-            </li>)}
-        </ul> */}
+        <ExpenseTable
+        clicked={this.deleteItemHandler}
+        updatedData={updatedData} />
+        
       </div>
     )
   }
