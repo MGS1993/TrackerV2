@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useTable } from "react-table";
+import { useTable, useSortBy } from "react-table";
 import { COLUMNS } from "./columns";
 import  './ExpenseTable.module.css';
+import { BiCaretUp, BiCaretDown } from "react-icons/bi";
 
 const ExpenseTable = React.memo((props) => {
   const [tableData, setTableData] = useState([{ data: "data" }]);
@@ -32,7 +33,8 @@ const ExpenseTable = React.memo((props) => {
   const tableInstance = useTable({
     columns: COLUMNS,
     data: tableData
-  });
+  },
+  useSortBy);
 
   const {
     getTableProps,
@@ -48,7 +50,12 @@ const ExpenseTable = React.memo((props) => {
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+              <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                {column.render("Header")}
+                <span>
+                  {column.isSorted ? (column.isSortedDesc ? <BiCaretDown /> : <BiCaretUp />) : ''}
+                </span>
+                </th>
             ))}
           </tr>
         ))}
