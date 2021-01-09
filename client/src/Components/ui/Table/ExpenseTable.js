@@ -13,8 +13,6 @@ const ExpenseTable = React.memo((props) => {
     } else {
       setTableData(props.updatedData)
     }
-    
-    
   }, [props.updatedData]);
 
   
@@ -29,6 +27,7 @@ const ExpenseTable = React.memo((props) => {
     }
   }
 
+  
   
   const tableInstance = useTable({
     columns: COLUMNS,

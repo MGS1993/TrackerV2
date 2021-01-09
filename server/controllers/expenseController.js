@@ -19,7 +19,8 @@ exports.add_expense = function(req, res, next) {
       expenseName: req.body.expenseName,
       expensePrice: req.body.expensePrice,
       user: req.body.user,
-      category: req.body.category
+      category: req.body.category,
+      date: req.body.date 
     }
   );
   

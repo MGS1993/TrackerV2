@@ -7,7 +7,8 @@ class CreateExpense extends Component {
     expensePrice: "",
     currentUserId: "",
     usersList: "",
-    category: "Electronics"
+    category: "Electronics",
+    date: ''
     
   }
 
@@ -32,13 +33,6 @@ class CreateExpense extends Component {
       console.log(error)
     }
 
-    // try {
-    //   const response = await fetch('/api/test');
-    //   const data = await response.json();
-    //   console.log('these are the expenses created by manuel', data)
-    // } catch(error) {
-    //   console.log(error)
-    // }
   }
 
   handleSubmit = e => {
@@ -47,8 +41,10 @@ class CreateExpense extends Component {
       expenseName: this.state.expenseName,
       expensePrice: this.state.expensePrice,
       user: this.state.currentUserId,
-      category: this.state.category
+      category: this.state.category,
+      date: this.state.date.replace(/-/, '/').replace(/-/, '/')
     }
+    
     fetch('api/add-expense', {
       method: 'POST',
       body: JSON.stringify(dataBody),
@@ -68,6 +64,9 @@ class CreateExpense extends Component {
   }
   handleDropDownChange = e => {
     this.setState({category: e.target.value})
+  }
+  handleDateChange = e => {
+    this.setState({date: e.target.value})
   }
   render() {
 
@@ -115,6 +114,17 @@ class CreateExpense extends Component {
                   <option value="Rent">Rent</option>
                   <option value="Travel">Travel</option>
                 </select>
+              </label>
+            </div>
+            <div className={styles.labelWrapper}>
+              <label>
+                <div> 
+                  Date
+                </div>
+
+                <input type="date" name="date"
+                value={this.state.date}
+                onChange={this.handleDateChange} />
               </label>
             </div>
             <input

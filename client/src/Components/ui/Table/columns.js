@@ -1,7 +1,19 @@
+import {  format, parseISO  } from 'date-fns';
+
+
 export const COLUMNS = [
   {
-    Header: 'Time',
-    accessor: 'time'
+    Header: 'Date',
+    accessor: 'date',
+    Cell: (props) => {
+      if(props.value !== undefined) {
+        const custom_date = format(parseISO(props.value), 'M/d/Y')
+        return <span>{custom_date}</span>
+      } else {
+        return null
+      }
+      
+    }
   },
   {
     Header: 'ExpenseName',

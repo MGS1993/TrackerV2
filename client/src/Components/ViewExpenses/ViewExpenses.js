@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import styles from './ViewExpenses.module.css';
 import Nav from '../ui/Nav/Nav';
 import ExpenseTable from '../../Components/ui/Table/ExpenseTable';
+
 class ViewExpenses extends Component {
 
   state = {
@@ -33,6 +34,7 @@ class ViewExpenses extends Component {
       this.fetchData()
     } else {
       console.log('delete button not toggled')
+      // console.log(e.target.parentElement.firstChild.innerText)
     }
   }
   toggleDelete = e => {
@@ -63,8 +65,6 @@ class ViewExpenses extends Component {
         >ToggleDelete</button>
       )
     }
-
-
     return(
       <div className={styles.viewExpensesWrapper}>
         <Nav />
@@ -80,7 +80,6 @@ class ViewExpenses extends Component {
       </div>
     )
   }
-  
 }
 
 export default ViewExpenses

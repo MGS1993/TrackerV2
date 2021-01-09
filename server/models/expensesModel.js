@@ -7,13 +7,19 @@ const ExpensesSchema = new Schema (
     expensePrice: {type: Number, required: true},
     user: {type: Schema.Types.ObjectId, required:true, ref: 'Users'},
     category: {type:String, required: true},
-    time: {type: Date, default: Date.now }
+    time: {type: Date, default: Date.now },
+    date: {type: Date, default: Date.now }
   }
 );
 
 //Virtual
 
-//Virtual for total expenses in DB
+//Virtual last month's expenses
+// ExpensesSchema
+// .virtual('last_month')
+// .get(function () {
+  
+// })
 
 
 
