@@ -12,6 +12,8 @@ router.get('/expenses', expenseController.all_expenses);
 router.post('/add-expense', expenseController.add_expense);
 //POST Delete Expense
 router.post('/expenses/:id/delete', expenseController.expense_delete)
+//UPDATE Edit Expense
+router.put('/expenses/:id/update', expenseController.update_expense)
 
 
 

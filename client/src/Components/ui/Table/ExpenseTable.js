@@ -67,7 +67,7 @@ const ExpenseTable = React.memo((props) => {
           return (
             <tr id={tableData[index]._id} onClick={props.clicked} {...row.getRowProps()}>
               {row.cells.map((cell) => {
-               return <td  {...cell.getCellProps()}>{cell.render('Cell')}</td>;
+               return <td onDoubleClick={props.clickToUpdate} {...cell.getCellProps()}>{cell.render('Cell')}</td>;
               })}
             </tr>
           );

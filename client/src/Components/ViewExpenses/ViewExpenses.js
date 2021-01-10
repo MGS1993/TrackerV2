@@ -2,12 +2,15 @@ import React, {Component} from 'react';
 import styles from './ViewExpenses.module.css';
 import Nav from '../ui/Nav/Nav';
 import ExpenseTable from '../../Components/ui/Table/ExpenseTable';
+import EditModal from '../ui/Modal/EditModal/EditModal';
 
 class ViewExpenses extends Component {
 
   state = {
     expenses: [],
-    delBtnToggled: false
+    delBtnToggled: false,
+    show: false,
+    modalId: ''
   }
 
   
@@ -42,10 +45,10 @@ class ViewExpenses extends Component {
       ({delBtnToggled: !prevState.delBtnToggled}))
     console.log(e.target)
   }
-  test = e => {
-    console.log(e.target.parentElement.id)
-    
+  toggleEdit = e => {
+    this.setState({show: !this.state.show, modalId: e.target.parentElement.id})
   }
+
   render() {
     let updatedData = this.state.expenses
 
@@ -66,6 +69,7 @@ class ViewExpenses extends Component {
       )
     }
     return(
+      <React.Fragment>
       <div className={styles.viewExpensesWrapper}>
         <Nav />
         <div className={styles.viewHeader}>
@@ -75,9 +79,14 @@ class ViewExpenses extends Component {
         </div>
         <ExpenseTable
         clicked={this.deleteItemHandler}
-        updatedData={updatedData} />
+        updatedData={updatedData}
+        clickToUpdate={this.toggleEdit} />
         
       </div>
+      <EditModal
+       show={this.state.show}
+       selected={this.state.modalId} />
+      </React.Fragment>
     )
   }
 }

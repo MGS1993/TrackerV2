@@ -28,6 +28,7 @@ class CreateUser extends Component {
 
   render() {
     return (
+      <React.Fragment>
       <div className={styles.CUWrapper}>
         
         <div className={styles.CUForm}>
@@ -46,6 +47,8 @@ class CreateUser extends Component {
           </form>
         </div>
       </div>
+      
+      </React.Fragment>
     );
   }
 }

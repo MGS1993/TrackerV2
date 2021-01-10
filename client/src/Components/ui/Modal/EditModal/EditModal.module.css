@@ -1,0 +1,55 @@
+.EMMainWrapper {
+  position: absolute;
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  bottom: 25%;
+  left: 25%;
+}
+
+.EMFormWrapper {
+  height: 500px;
+  width: 250px;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.form {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+  
+}
+
+.labelWrapper {
+  margin: 10px 0;
+}
+.labelWrapper > label {
+  left: 20px;
+}
+
+.submitBtn {
+  margin-top: 30px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+}
+.submitBtn:hover {
+  background-color: rgb(42, 161, 42);
+}
+.submitBtn:active {
+  background-color: rgb(49, 187, 49);
+
+}
