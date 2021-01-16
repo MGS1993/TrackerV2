@@ -1,0 +1,26 @@
+
+
+.viewWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.viewWrapper > button {
+  margin: 4px 10px;
+  position: relative;
+  padding: 5px 16px;
+  background-color:  #4CAF50;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.viewWrapper > button:hover {
+  background-color: rgb(42, 161, 42);
+}
+.viewWrapper > button:active {
+  background-color: rgb(49, 187, 49);
+}
+

@@ -3,9 +3,23 @@
   flex-direction: column;
   align-items: center
 }
+.viewHeader {
+  display: flex;
+  flex-direction: row;
+}
 
-
-
+.dropDownWrapper {
+  position: relative;
+  right: 50px;
+  }
+  
+.mainHeader {
+  display: flex;
+  flex-direction: column;
+  order: 1;
+  width: 300px;
+  justify-content: center;
+}
 
 .deleteToggleWrapper {
   position: relative;
@@ -19,7 +33,6 @@
 }
 .buttonWrapper {
   position: relative;
-  margin: 0 50px;
   padding: 5px;
   background-color:  #4CAF50;
   border: none;

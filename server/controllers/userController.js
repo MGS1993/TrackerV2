@@ -16,11 +16,10 @@ exports.add_user = function(req, res, next) {
 
 //GET users
 exports.display_users = function(req, res, next) {
-  userModel.find({}, function(err, docs) {
-    if(err) {return next(err);}
-    //if no errors
-    res.send(docs)
-  })
+  userModel.find({}).populate('Expenses')
+  .then(userList => res.json(userList) )
+  
+  .catch(err => res.status(400).json('Error: ' + err))
 }
 
 

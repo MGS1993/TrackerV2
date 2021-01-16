@@ -26,15 +26,13 @@ const EditModal = props => {
         'Content-Type': 'application/json'
       },
     })
+    props.toggleEdit(e)
   }
 
 
   return(
     <div className={styles.EMMainWrapper}
-    style={{
-      transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
-      opacity: props.show ? '1': '0'
-    }}>
+      style={props.style}>
       <div className={styles.EMFormWrapper}>
         <form className={styles.form} onSubmit={handleSubmitEdit}>
           <div className={styles.labelWrapper}>

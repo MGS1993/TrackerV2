@@ -17,9 +17,7 @@ class CreateUser extends Component {
       headers: {
         'Content-Type': 'application/json'
       },
-
     })
-    
   }
 
   handleUserNameChange = e => {
@@ -35,15 +33,21 @@ class CreateUser extends Component {
           <form onSubmit={this.handleSubmit}>
             <label>
               New User Name
-              <input
-                type="text"
-                name="userName"
-                value={this.state.userName}
-                onChange={this.handleUserNameChange}
-              />
+                <div>
+                  <input
+                    type="text"
+                    name="userName"
+                    className={styles.input}
+                    value={this.state.userName}
+                    onChange={this.handleUserNameChange}
+                  />
+                </div>
             </label>
 
-            <input type="submit" value="Add New User" />
+            <input 
+            className={styles.submitBtn} 
+            type="submit" 
+            value="Add New User" />
           </form>
         </div>
       </div>

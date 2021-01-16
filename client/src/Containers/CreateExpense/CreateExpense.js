@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './CreateExpense.module.css';
 import Nav from '../../Components/ui/Nav/Nav';
+import CreateUser from '../CreateUser/CreateUser';
 class CreateExpense extends Component {
   state= {
     expenseName: "",
@@ -8,7 +9,8 @@ class CreateExpense extends Component {
     currentUserId: "",
     usersList: "",
     category: "Electronics",
-    date: ''
+    date: '',
+    appliedModule: 'Add Expense',
     
   }
 
@@ -68,71 +70,88 @@ class CreateExpense extends Component {
   handleDateChange = e => {
     this.setState({date: e.target.value})
   }
+  handleActionNavBtn = e => {
+    this.setState({appliedModule: e.target.innerText})
+  }
   render() {
+    let rendered = null;
 
+    if(this.state.appliedModule === 'Add Expense') {
+      rendered = (<div className={styles.CEFormWrapper}>
+        <form className={styles.form} onSubmit={this.handleSubmit}>
+          <div className={styles.labelWrapper}>
+            <label>
+              <div>
+              Expense Name
+              </div>
+
+              <input
+              className={styles.input} 
+              type="text" name="expenseName" 
+              value={this.state.expenseName}
+              onChange={this.handleExpenseNameChange} />
+            </label>
+          </div>
+
+          <div className={styles.labelWrapper}>
+            <label>
+              <div> 
+                Expense Price
+              </div>
+
+              <input type="text" name="expensePrice"
+              className={styles.input} 
+              value={this.state.expensePrice}
+              onChange={this.handleExpensePriceChange} />
+            </label>
+          </div>
+          <div className={styles.labelWrapper}>
+            <label>
+              <div>
+                Category
+              </div>
+
+              <select defaultValue={this.state.category} onChange={this.handleDropDownChange}>
+                <option value="Electronics">Electronics</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Rent">Rent</option>
+                <option value="Travel">Travel</option>
+              </select>
+            </label>
+          </div>
+          <div className={styles.labelWrapper}>
+            <label>
+              <div> 
+                Date
+              </div>
+
+              <input type="date" name="date"
+              className={styles.input} 
+              value={this.state.date}
+              onChange={this.handleDateChange} />
+            </label>
+          </div>
+          <input
+           type="submit" 
+           value="Submit Expense"
+           className={styles.submitBtn} />
+        </form>
+      </div>)
+    } else if( this.state.appliedModule === 'Add User') {
+      rendered = (
+        <CreateUser />
+      )
+    }
 
     return(
       <div className={styles.CEWrapper}>
         <Nav />
-        <h2>Add an expense</h2>
-        <div className={styles.CEFormWrapper}>
-          <form className={styles.form} onSubmit={this.handleSubmit}>
-            <div className={styles.labelWrapper}>
-              <label>
-                <div>
-                Expense Name
-                </div>
-
-                <input 
-                type="text" name="expenseName" 
-                value={this.state.expenseName}
-                onChange={this.handleExpenseNameChange} />
-              </label>
-            </div>
-
-            <div className={styles.labelWrapper}>
-              <label>
-                <div> 
-                  Expense Price
-                </div>
-
-                <input type="text" name="expensePrice"
-                value={this.state.expensePrice}
-                onChange={this.handleExpensePriceChange} />
-              </label>
-            </div>
-            <div className={styles.labelWrapper}>
-              <label>
-                <div>
-                  category
-                </div>
-
-                <select defaultValue={this.state.category} onChange={this.handleDropDownChange}>
-                  <option value="Electronics">Electronics</option>
-                  <option value="Groceries">Groceries</option>
-                  <option value="Utilities">Utilities</option>
-                  <option value="Rent">Rent</option>
-                  <option value="Travel">Travel</option>
-                </select>
-              </label>
-            </div>
-            <div className={styles.labelWrapper}>
-              <label>
-                <div> 
-                  Date
-                </div>
-
-                <input type="date" name="date"
-                value={this.state.date}
-                onChange={this.handleDateChange} />
-              </label>
-            </div>
-            <input
-             type="submit" 
-             value="Submit Expense"
-             className={styles.submitBtn} />
-          </form>
+        <div className={styles.actionNav}>
+          <button onClick={this.handleActionNavBtn}>Add Expense</button>
+          <button onClick={this.handleActionNavBtn}>Add User</button>
         </div>
+        {rendered}
       </div>
     )
   }
