@@ -111,7 +111,7 @@ class CreateExpense extends Component {
                 Category
               </div>
 
-              <select defaultValue={this.state.category} onChange={this.handleDropDownChange}>
+              <select className={styles.select} defaultValue={this.state.category} onChange={this.handleDropDownChange}>
                 <option value="Electronics">Electronics</option>
                 <option value="Groceries">Groceries</option>
                 <option value="Utilities">Utilities</option>
@@ -127,7 +127,7 @@ class CreateExpense extends Component {
               </div>
 
               <input type="date" name="date"
-              className={styles.input} 
+              className={styles.inputDate} 
               value={this.state.date}
               onChange={this.handleDateChange} />
             </label>

@@ -42,6 +42,7 @@ const EditModal = props => {
               </div>
               <input 
               type="text" name="expenseName"
+              className={styles.input} 
               value={expenseName}
               onChange={e => setExpenseName(e.target.value)}
               required={true} />
@@ -57,6 +58,7 @@ const EditModal = props => {
               <input 
               type="text"
               name="expensePrice"
+              className={styles.input} 
               value={expensePrice}
               onChange={e => setExpensePrice(e.target.value)}
               required={true} />
@@ -67,7 +69,7 @@ const EditModal = props => {
                   Category
                 </div>
 
-                <select defaultValue={category} onChange={e => setCategory(e.target.value)}>
+                <select className={styles.select} defaultValue={category} onChange={e => setCategory(e.target.value)}>
                   <option value="Electronics">Electronics</option>
                   <option value="Groceries">Groceries</option>
                   <option value="Utilities">Utilities</option>
@@ -82,6 +84,7 @@ const EditModal = props => {
                   Date
                 </div>
                 <input type="date" name="date"
+                className={styles.inputDate}
                 value={date}
                 onChange={e => setDate(e.target.value)}
                 required={true} />
@@ -92,6 +95,10 @@ const EditModal = props => {
             value="Confirm Edit"
             className={styles.submitBtn}
             required={true} />
+            <button 
+            className={styles.submitBtn}
+            onClick={props.cancel}
+            >Cancel</button>
           </div>
         </form>
       </div>

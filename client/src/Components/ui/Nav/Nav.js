@@ -5,8 +5,8 @@ import styles from './Nav.module.css';
 const Nav = props => (
   <nav className={styles.navWrapper}>
     <div><Link to="/view-expenses"><p>View Expenses</p></Link></div>
-    <div><Link to="/create-expense"><p>Log Expense</p></Link></div>
     <div><Link to="/"><p>Home</p></Link></div>
+    <div><Link to="/create-expense"><p>Log Expense</p></Link></div>
     {/* <div><Link to="/create-user"><p>Add New User</p></Link></div> */}
   </nav>
 )

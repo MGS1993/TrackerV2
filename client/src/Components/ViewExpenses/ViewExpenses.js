@@ -42,6 +42,7 @@ class ViewExpenses extends Component {
     console.log(e.target);
   };
   toggleEdit = (e) => {
+    e.preventDefault();
     this.setState({
       show: !this.state.show,
       modalId: e.target.parentElement.id,
@@ -56,8 +57,7 @@ class ViewExpenses extends Component {
     let updatedData = this.state.expenses;
     let rendered = null
     let btn = null;
-
-    if (this.state.delBtnToggled) {
+    if (this.state.delBtnToggled && this.state.appliedModule === 'Table') {
       btn = (
         <button
           onClick={this.toggleDelete}
@@ -105,6 +105,7 @@ class ViewExpenses extends Component {
           {rendered}
         </div>
         <EditModal
+          cancel={this.toggleEdit}
           style={{
             transform: this.state.show ? "translateY(0)" : "translateY(-100vh)",
             opacity: this.state.show ? "1" : "0",

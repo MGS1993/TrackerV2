@@ -11,7 +11,21 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f6f6f2;
 }
+/*
+teal blue
+    #388087 
+ moonstone blue
+    #6fb3b8
+ powder blue
+    #badfe7
+ magic mint
+    #c2edce
+    (outline magic mint)
+    #a5dfb5
+ white smoke
+    #f6f6f2*/
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

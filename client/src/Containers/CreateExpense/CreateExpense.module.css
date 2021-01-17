@@ -1,3 +1,9 @@
+:root {
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+
 .CEWrapper {
   position: fixed;
   height: 100vh;
@@ -10,17 +16,16 @@
 }
 
 .CEFormWrapper {
-  height: 50%;
-  width: 30%;
-  max-width: 270px;
-  min-width: 202px;
-  background-color: #F2F2F2;
+  height: 400px;
+  width: 500px;
+  background-color: #f6f6f2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
+  margin-top: 5%;
   border-radius: 5px;
+  
 }
 
 
@@ -28,23 +33,28 @@
   height: 80%;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   align-items: center;
-  
+
 }
 
 
 .labelWrapper {
   margin: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .labelWrapper > label {
-  left: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .submitBtn {
   margin-top: 30px;
-  background-color: #4CAF50; /* Green */
+  background-color:#6fb3b8; 
   border: none;
   font-size: 16px;
   cursor: pointer;
@@ -53,19 +63,39 @@
   width: 100%;
 }
 .submitBtn:hover {
-  background-color: rgb(42, 161, 42);
+  background-color: #6fb3b8;
 }
 .submitBtn:active {
-  background-color: rgb(49, 187, 49);
+  background-color: #6fb3b8;
 
 }
+@keyframes underline {
+  0% {border-bottom: 1px solid #eee8e8;}
+  25% {border-bottom: 2px solid #c2edce;}
+  50% {border-bottom: 2px solid  #a6ebb9;}
+  75% {border-bottom: 2px solid #7fe99d;}
+  100% {border-bottom: 2px solid #4bdf75;}
+}
 .input {
-  box-shadow: inset 0 1px 3px #ddd;
-  border: 1px solid #ccc;
+  border: none;
+  border-bottom: 1px solid #eee8e8;
+  height: 28px;
+  padding: 2px 10px;
+  
+}
+.input:focus {
+  border-bottom: 2px solid #4bdf75;
+  animation-name: underline;
+  animation-duration: .2s;
+}
+.inputDate {
+  border: none;
   height: 28px;
   padding: 2px 10px;
 }
-
+.inputDate:focus {
+  border: 1px solid #4bdf75
+}
 .actionNav {
   display: flex;
   flex-direction: row;
@@ -75,7 +105,7 @@
 }
 .actionNav > button {
   margin-top: 30px;
-  background-color: #4CAF50; /* Green */
+  background-color: #6fb3b8; 
   border: none;
   font-size: 16px;
   cursor: pointer;
@@ -83,9 +113,42 @@
   padding: 5px;
 }
 .actionNav > button:hover {
-  background-color: rgb(42, 161, 42);
+  background-color: #388087;
 }
 .actionNav > button:active {
-  background-color: rgb(49, 187, 49);
+  background-color: #6fb3b8;
 
+}
+select {
+  /* // A reset of styles, including removing the default dropdown arrow */
+  appearance: none;
+  /* // Additional resets for further consistency */
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+}
+
+.select {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #eee8e8;
+  border-radius: 2px;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  transition: .3s;
+}
+.select:focus {
+  border: 1px solid #4bdf75;
+  
+  animation-duration: .2s;
 }

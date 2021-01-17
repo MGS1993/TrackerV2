@@ -69,7 +69,6 @@ class BarGraph extends Component {
         })
       }
     })
-
     this.setState({categoryData}) 
   }
   setTableData = async () => {
@@ -81,12 +80,12 @@ class BarGraph extends Component {
           label: 'Expenses By Category',
           data: [],
           backgroundColor: [
-            'rgba(255,99,132,0.6)',
-            'rgba(153, 102, 255, 0.6)',
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(155, 102, 255, 0.6)',
+            'rgba(63, 217, 238, 1)',
+            'rgba(63, 217, 61, 1)',
+            'rgba(67, 140, 255, 1)',
+            'rgba(188, 191, 61, 1)',
             'rgba(114, 124, 255, 0.6)',
-            'rgba(153, 102, 90, 0.6)',
+            'rgba(188, 38, 61, 1)',
           ]
         }
       ]

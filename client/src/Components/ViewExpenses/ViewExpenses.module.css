@@ -24,7 +24,7 @@
 .deleteButtonWrapper {
   position: relative;
   padding: 5px;
-  background-color: red;
+  background-color: #d96666;
   border: none;
   color: white;
   font-size: 14px;
@@ -33,7 +33,7 @@
 .buttonWrapper {
   position: relative;
   padding: 5px;
-  background-color:  #4CAF50;
+  background-color:  #6fb3b8;
   border: none;
   color: white;
   font-size: 14px;
@@ -41,5 +41,5 @@
 }
 
 .buttonWrapper:hover {
-  background-color: red;
+  background-color: #d88585ed;
 }
