@@ -21,9 +21,8 @@
   justify-content: center;
 }
 
-.deleteToggleWrapper {
+.deleteButtonWrapper {
   position: relative;
-  margin: 0 50px;
   padding: 5px;
   background-color: red;
   border: none;

@@ -6,8 +6,10 @@ const expenseController = require('../controllers/expenseController');
 const userController = require('../controllers/userController');
 
 //EXPENSES ROUTES
-//get all expenses
+//GET all expenses
 router.get('/expenses', expenseController.all_expenses);
+//GET expenses by category
+// router.get('/expenses/cat', expenseController.get_expense_by_category)
 ///POST expense
 router.post('/add-expense', expenseController.add_expense);
 //POST Delete Expense

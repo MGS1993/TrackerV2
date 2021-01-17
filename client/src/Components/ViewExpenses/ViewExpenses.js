@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./ViewExpenses.module.css";
 import Nav from "../ui/Nav/Nav";
 import DropDown from "../ui/DropDown/DropDown";
+import BarGraph from '../ui/Graphs/BarGraph/BarGraph';
 import ExpenseTable from "../../Components/ui/Table/ExpenseTable";
 import EditModal from "../ui/Modal/EditModal/EditModal";
 
@@ -11,6 +12,7 @@ class ViewExpenses extends Component {
     delBtnToggled: false,
     show: false,
     modalId: "",
+    appliedModule: 'Table'
   };
   fetchData = async () => {
     try {
@@ -46,16 +48,20 @@ class ViewExpenses extends Component {
     });
     this.fetchData();
   };
-
+  handleClick = e => {
+    this.setState({appliedModule: e.target.innerText})
+  }
+  
   render() {
     let updatedData = this.state.expenses;
-
+    let rendered = null
     let btn = null;
+
     if (this.state.delBtnToggled) {
       btn = (
         <button
           onClick={this.toggleDelete}
-          className={styles.deleteToggleWrapper}
+          className={styles.deleteButtonWrapper}
         >
           ToggleDelete
         </button>
@@ -67,6 +73,20 @@ class ViewExpenses extends Component {
         </button>
       );
     }
+
+    if(this.state.appliedModule === 'Table' ) {
+       rendered = (
+          <ExpenseTable
+            clicked={this.deleteItemHandler}
+            updatedData={updatedData}
+            clickToUpdate={this.toggleEdit}
+          />
+      )
+    } else if (this.state.appliedModule === 'Bar') {
+       rendered = (
+        <BarGraph />
+      )
+    }
     return (
       <React.Fragment>
         <div className={styles.viewExpensesWrapper}>
@@ -74,20 +94,15 @@ class ViewExpenses extends Component {
           <h2>Current expenses</h2>
           <div className={styles.viewHeader}>
             <div className={styles.mainHeader}>
-              
               <div>{btn}</div>
             </div>
-
             <div className={styles.dropDownWrapper}>
-              <DropDown />
+              <DropDown
+              clickedTable={this.handleClick}
+              clickedBar={this.handleClick} />
             </div>
           </div>
-
-          <ExpenseTable
-            clicked={this.deleteItemHandler}
-            updatedData={updatedData}
-            clickToUpdate={this.toggleEdit}
-          />
+          {rendered}
         </div>
         <EditModal
           style={{
