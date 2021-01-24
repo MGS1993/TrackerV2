@@ -35,7 +35,10 @@ class BarGraph extends Component {
     let utilitiesData = [];
     let travelData = [];
     try {
-      const response = await fetch("/api/expenses");
+      const loggedInUserID = localStorage.getItem('userID');
+      //for all expenses
+      // const response = await fetch("/api/expenses");
+      const response = await fetch(`/api/userExpenses/${loggedInUserID}`);
       const data = await response.json();
       data.forEach(el => {
         if(el.category === 'Groceries') {

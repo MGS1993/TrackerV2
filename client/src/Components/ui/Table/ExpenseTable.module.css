@@ -21,3 +21,7 @@ table th {
   background-color: #6fb3b8;
   color: white;
 }
+
+table th:hover {
+  color: #a8776a
+}

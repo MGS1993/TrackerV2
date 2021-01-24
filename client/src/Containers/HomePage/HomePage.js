@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './HomePage.module.css';
 import Nav from '../../Components/ui/Nav/Nav';
 import LogInModal from '../../Components/ui/Modal/LogInModal/LogInModal';
+import SignOut from '../../Components/SignOutBtn/SignOutBtn'
 import TotalExpenditures from '../../Components/ui/CoalescedData/TotalExpenditure/TotalExpenditures';
 import {  isThisMonth, parseISO, differenceInCalendarMonths } from 'date-fns';
 
@@ -19,7 +20,10 @@ class HomePage extends Component {
   }
   async componentDidMount() {
     try {
-      const response = await fetch('/api/expenses')
+      const loggedInUserID = localStorage.getItem('userID');
+      // loads all user expenses
+      // const response = await fetch('/api/expenses')
+      const response = await fetch(`/api/userExpenses/${loggedInUserID}`);
       const data = await response.json()
       this.setState({totalExpenses: data})
       this.homePageExpenses()
@@ -81,6 +85,11 @@ class HomePage extends Component {
   loginHandler = () => {
     this.setState({loggedIn: true})
   } 
+  handleLogout = () => {
+    this.setState({currentUser: "", currentUserID: ""})
+    localStorage.clear()
+    window.location.reload();
+  }
   render() {
     
     let showHomePage = null
@@ -96,10 +105,10 @@ class HomePage extends Component {
     return (
       <React.Fragment>
       <div className={styles.homePageWrapper} 
-      
       style={showHomePage}>
+        <SignOut logoutHandler = {this.handleLogout} />
         <Nav />
-        <h1>This is the Home Page!</h1>
+          <h1>Welcome, {this.state.currentUser}!</h1>
         <TotalExpenditures 
         totalSpent={this.state.homePageExpenses}
         currentMonthTotal={this.state.thisMonthExpenses}

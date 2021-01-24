@@ -14,14 +14,22 @@ class ViewExpenses extends Component {
     modalId: "",
     appliedModule: 'Table'
   };
+
+   componentDidMount() {
+   this.fetchData();
+  }
+  
   fetchData = async () => {
     try {
-      const response = await fetch("/api/expenses");
+      const loggedInUserID = localStorage.getItem('userID');
+      const response = await fetch(`/api/userExpenses/${loggedInUserID}`);
       const data = await response.json();
-      this.setState({ expenses: data });
-    } catch (err) {
-      console.log(err);
+      console.log('these are the user expenses', data)
+      this.setState({ expenses: data })
+    } catch(err) {
+      console.log(err)
     }
+ 
   };
   deleteItemHandler = (e) => {
     let selected = e.target.parentElement.id;

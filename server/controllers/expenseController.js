@@ -10,6 +10,14 @@ exports.all_expenses = function(req, res, next) {
   .then(expenseList => res.json(expenseList) )
   .catch(err => res.status(400).json('Error: ' + err))
 }
+//Lists all user expenses
+exports.user_expenses = function (req, res, next) {
+  
+  expenses.find({user: req.params.id})
+  .then(expenseList => res.json(expenseList) )
+  .catch(err => res.status(400).json('Error:' + err))
+  
+}
 
 //POST new expense
 exports.add_expense = function(req, res, next) {

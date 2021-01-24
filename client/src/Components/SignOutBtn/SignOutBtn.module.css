@@ -1,0 +1,9 @@
+.signOutDivWrapper {
+  position: absolute;
+  left: 95%;
+}
+.signOutText {
+  font-size: 14px;
+  cursor: pointer;
+  color: #E27D60
+}

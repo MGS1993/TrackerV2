@@ -16,11 +16,11 @@ const ExpenseTable = React.memo((props) => {
     }
   }, [props.updatedData]);
 
-  
   async function getTableData() {
-    console.log("fetchData ran...");
+    const loggedInUserID = localStorage.getItem('userID');
+
     try {
-      const response = await fetch("/api/expenses");
+      const response = await fetch(`/api/userExpenses/${loggedInUserID}`);
       const apiData = await response.json();
       setTableData(apiData);
     } catch (err) {
@@ -28,8 +28,6 @@ const ExpenseTable = React.memo((props) => {
     }
   }
 
-  
-  
   const tableInstance = useTable({
     columns: COLUMNS,
     data: tableData

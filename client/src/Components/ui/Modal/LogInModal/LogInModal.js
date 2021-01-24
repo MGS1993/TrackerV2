@@ -40,6 +40,7 @@ const LogInModal = props => {
     }
     
   }
+  
   const handleRegister = e => {
     e.preventDefault();
     let dataBody = {

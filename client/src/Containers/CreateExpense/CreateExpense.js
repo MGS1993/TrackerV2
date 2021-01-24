@@ -1,34 +1,30 @@
 import React, { Component } from 'react';
 import styles from './CreateExpense.module.css';
 import Nav from '../../Components/ui/Nav/Nav';
-import CreateUser from '../CreateUser/CreateUser';
 class CreateExpense extends Component {
   state= {
     expenseName: "",
     expensePrice: "",
     currentUserId: "",
-    usersList: "",
     category: "Electronics",
     date: '',
     appliedModule: 'Add Expense',
     
   }
   async componentDidMount() {
-    try {
+    const loggedInUser = localStorage.getItem('user');
+    const loggedInUserID = localStorage.getItem('userID');
+
+    try{
       const response = await fetch('/api/expenses')
       const data = await response.json()
       console.log('expenses fetched...', data)
-    } catch(error) {
-      console.log(error)
-    }
 
-    try{
-      const response = await fetch('/api/display-users')
-      const data = await response.json();
-      console.log('users fetched...', data)
-      console.log('current user is:', data[0]._id)
-      this.setState({currentUserId: data[0]._id })
-      this.setState({usersList: data})
+      console.log('current user is:', loggedInUser)
+      this.setState({
+        currentUserId: loggedInUserID,
+        currentUser: loggedInUser 
+        })
     } catch(error) {
       console.log(error)
     }
@@ -136,18 +132,14 @@ class CreateExpense extends Component {
            className={styles.submitBtn} />
         </form>
       </div>)
-    } else if( this.state.appliedModule === 'Add User') {
-      rendered = (
-        <CreateUser />
-      )
-    }
+    } 
 
     return(
       <div className={styles.CEWrapper}>
         <Nav currentUser={currentUser}/>
         <div className={styles.actionNav}>
           <button onClick={this.handleActionNavBtn}>Add Expense</button>
-          <button onClick={this.handleActionNavBtn}>Add User</button>
+          
         </div>
         {rendered}
       </div>

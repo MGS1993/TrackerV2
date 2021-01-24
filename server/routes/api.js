@@ -8,8 +8,8 @@ const userController = require('../controllers/userController');
 //EXPENSES ROUTES
 //GET all expenses
 router.get('/expenses', expenseController.all_expenses);
-//GET expenses by category
-// router.get('/expenses/cat', expenseController.get_expense_by_category)
+//GET expenses by user
+router.get('/userExpenses/:id', expenseController.user_expenses);
 ///POST expense
 router.post('/add-expense', expenseController.add_expense);
 //POST Delete Expense
