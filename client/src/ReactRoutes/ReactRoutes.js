@@ -13,7 +13,6 @@ const Routes = () => {
         <Route exact path='/create-user' component={CreateUser} />
         <Route exact path='/view-expenses' component={ViewExpenses} />
       </Switch>
-    
     </BrowserRouter>
   )
 }

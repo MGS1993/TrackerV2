@@ -13,8 +13,6 @@ class CreateExpense extends Component {
     appliedModule: 'Add Expense',
     
   }
-
-
   async componentDidMount() {
     try {
       const response = await fetch('/api/expenses')
@@ -75,7 +73,7 @@ class CreateExpense extends Component {
   }
   render() {
     let rendered = null;
-
+    let currentUser = this.state.currentUserId;
     if(this.state.appliedModule === 'Add Expense') {
       rendered = (<div className={styles.CEFormWrapper}>
         <form className={styles.form} onSubmit={this.handleSubmit}>
@@ -146,7 +144,7 @@ class CreateExpense extends Component {
 
     return(
       <div className={styles.CEWrapper}>
-        <Nav />
+        <Nav currentUser={currentUser}/>
         <div className={styles.actionNav}>
           <button onClick={this.handleActionNavBtn}>Add Expense</button>
           <button onClick={this.handleActionNavBtn}>Add User</button>

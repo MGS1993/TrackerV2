@@ -19,6 +19,7 @@ router.put('/expenses/:id/update', expenseController.update_expense)
 
 
 
+
 //USER ROUTES
 //POST user
 router.post('/create-user', userController.add_user);
@@ -26,7 +27,8 @@ router.post('/create-user', userController.add_user);
 router.get('/display-users', userController.display_users);
 //get test
 router.get('/test', expenseController.test_pop);
-
+//userLogin
+router.post('/login', userController.login);
 
 
 module.exports = router;
