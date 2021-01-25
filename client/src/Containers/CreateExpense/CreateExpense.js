@@ -137,6 +137,8 @@ class CreateExpense extends Component {
     return(
       <div className={styles.CEWrapper}>
         <Nav currentUser={currentUser}/>
+        {/* <FcApproval /> maybe make it it's own component
+        so that we can more easily animate it?*/}
         <div className={styles.actionNav}>
           <button onClick={this.handleActionNavBtn}>Add Expense</button>
           

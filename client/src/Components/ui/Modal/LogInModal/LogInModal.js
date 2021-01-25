@@ -25,9 +25,6 @@ const LogInModal = props => {
         }
       })
       const data = await response.json()
-      // console.log(data)
-      // console.log(data.user)
-      // console.log(response.status)
       if(response.status === 200) {
         localStorage.setItem('user', data.user.userName)
         localStorage.setItem('userID', data.user._id)
@@ -55,6 +52,7 @@ const LogInModal = props => {
         'Content-Type': 'application/json'
       }
     })
+    setApplyRegister(false)
   }
   let rendered = null
 
@@ -100,7 +98,7 @@ const LogInModal = props => {
              <div className={styles.labelWrapper}>
                <button 
                className={styles.submitBtn}
-               onClick={e => setApplyRegister(0)}>
+               onClick={e => setApplyRegister(true)}>
                  Register
                  </button>
              </div>
@@ -164,7 +162,7 @@ const LogInModal = props => {
              <div className={styles.labelWrapper}>
                <button 
                className={styles.submitBtn}
-               onClick={e => setApplyRegister(0)}>
+               onClick={e => e.preventDefault() + setApplyRegister(false)}>
                  cancel
                  </button>
              </div>

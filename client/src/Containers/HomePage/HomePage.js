@@ -108,7 +108,10 @@ class HomePage extends Component {
       style={showHomePage}>
         <SignOut logoutHandler = {this.handleLogout} />
         <Nav />
-          <h1>Welcome, {this.state.currentUser}!</h1>
+        {this.state.currentUser ? 
+        <h1>Welcome, {this.state.currentUser}!</h1> :
+        null }
+           
         <TotalExpenditures 
         totalSpent={this.state.homePageExpenses}
         currentMonthTotal={this.state.thisMonthExpenses}
