@@ -16,11 +16,8 @@ class CreateExpense extends Component {
     const loggedInUserID = localStorage.getItem('userID');
 
     try{
-      const response = await fetch('/api/expenses')
-      const data = await response.json()
-      console.log('expenses fetched...', data)
 
-      console.log('current user is:', loggedInUser)
+
       this.setState({
         currentUserId: loggedInUserID,
         currentUser: loggedInUser 

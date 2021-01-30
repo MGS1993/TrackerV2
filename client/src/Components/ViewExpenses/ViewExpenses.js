@@ -24,7 +24,6 @@ class ViewExpenses extends Component {
       const loggedInUserID = localStorage.getItem('userID');
       const response = await fetch(`/api/userExpenses/${loggedInUserID}`);
       const data = await response.json();
-      console.log('these are the user expenses', data)
       this.setState({ expenses: data })
     } catch(err) {
       console.log(err)
@@ -47,7 +46,6 @@ class ViewExpenses extends Component {
   };
   toggleDelete = (e) => {
     this.setState((prevState) => ({ delBtnToggled: !prevState.delBtnToggled }));
-    console.log(e.target);
   };
   toggleEdit = (e) => {
     e.preventDefault();

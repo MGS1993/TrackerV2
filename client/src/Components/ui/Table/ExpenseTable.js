@@ -6,7 +6,6 @@ import { BiCaretUp, BiCaretDown } from "react-icons/bi";
 
 const ExpenseTable = React.memo((props) => {
   const [tableData, setTableData] = useState([{ data: "data" }]);
-  console.log('expense table rendered...')
 
   useEffect(() => {
     if(props.updatedData.length === 0) {

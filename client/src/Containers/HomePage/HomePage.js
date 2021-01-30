@@ -38,7 +38,7 @@ class HomePage extends Component {
     const loggedInUser = localStorage.getItem('user');
     const loggedInUserID = localStorage.getItem('userID');
     if (loggedInUser && this.state.loggedIn === false) {
-      console.log('test')
+
       this.setState({
         loggedIn: true,
         currentUser: loggedInUser,

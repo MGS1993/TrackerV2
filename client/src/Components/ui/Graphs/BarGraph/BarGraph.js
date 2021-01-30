@@ -96,7 +96,6 @@ class BarGraph extends Component {
     groceryData.forEach(el => {
       unmodifiedData.datasets[0].data.push(el)
     })
-    console.log(unmodifiedData)
     this.setState({modifiedChartData: unmodifiedData})
   };
   render() {
